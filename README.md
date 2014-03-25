@@ -11,7 +11,7 @@ The directory structure is a bit strange, but it was my first go at making a nea
 
 /include/php/
 
-<h1>Installation Notes</h1>
+<h2>Installation Notes</h2>
 
 Just run git clone, and the index.php will start working.
 
