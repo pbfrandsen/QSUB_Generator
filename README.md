@@ -1,5 +1,4 @@
-Institute for Genomic Biology - 
-QSUB Generation Utility
+IGB QSUB Generation Utility
 ==============
 
 This tool helps biologists generate qsub scripts for the Institute For Genomic Biology's Cluster
