@@ -1,7 +1,8 @@
 QSUB Generator
 ==============
 
-This tool helps biologists generate qsub scripts for the Institute For Genomic Biology's Cluster by allowing them to interactively build their qsub script. As they enter the job details into the form, the qsub script is generated before their eyes!
+This tool helps biologists generate qsub scripts for the Institute For Genomic Biology's Cluster by allowing them to interactively build their qsub script. 
+As they enter the job details into the form, the qsub script is generated before their eyes!
 
 
 <h2>Installation Notes</h2>
