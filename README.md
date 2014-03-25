@@ -3,17 +3,11 @@ Qsub_generator
 
 This tool helps biologists generate qsub scripts for the Institute For Genomic Biology's Cluster
 
-The directory structure is a bit strange, but it was my first go at making a neat one.
-
-/include/css/
-
-/include/js/
-
-/include/php/
 
 <h2>Installation Notes</h2>
 
-Just run git clone, and the index.php will start working.
+Just run git clone, and the index.php will begin start working.
+The modules list is scraped from " http://biocluster.igb.illinois.edu/apps.txt "
 
 
 <h2>config.php</h2>
