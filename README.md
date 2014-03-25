@@ -16,7 +16,7 @@ The directory structure is a bit strange, but it was my first go at making a nea
 Just run git clone, and the index.php will start working.
 
 
-<h2>config.php<h2>
+<h2>config.php</h2>
 You can update the parameters you want to be recommended and optional,
 
 as well as defining the qsub parameters you want
