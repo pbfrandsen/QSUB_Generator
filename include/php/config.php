@@ -2,21 +2,24 @@
 
 
 /* Queue Settings, Queue Names must not have whitespace, or HTML ids fail! */
+$conf['queue']['budget']['cpu']            = 8;
+$conf['queue']['budget']['memory']         = 24;
+$conf['queue']['budget']['nodes']          = 10;
+
 $conf['queue']['blacklight']['cpu']         = 384;
 $conf['queue']['blacklight']['memory']      = 2048;
 $conf['queue']['blacklight']['nodes']       = 4;
 
 
-$conf['queue']['default']['cpu']            = 8;
-$conf['queue']['default']['memory']         = 24;
-$conf['queue']['default']['nodes']          = 25;
+$conf['queue']['default']['cpu']            = 24;
+$conf['queue']['default']['memory']         = 384;
+$conf['queue']['default']['nodes']          = 20;
 
-$conf['queue']['default']['default']       = 1; 
-        
+$conf['queue']['default']['default']       = 1;
+
 $conf['queue']['largememory']['cpu']       = 24;
 $conf['queue']['largememory']['memory']    = 1024;
 $conf['queue']['largememory']['nodes']     = 1;
-
 
 
 /* Recommended and Optional Settings we want the user to specifyn */
