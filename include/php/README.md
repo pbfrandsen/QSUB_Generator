@@ -1,4 +1,4 @@
-## Queue Settings, Queue Names must not have whitespace, or HTML ids fail! */
+## Queue Settings, Queue Names must not have whitespace, or HTML ids fail!
 
 
 ` $conf['queue']['budget']['cpu']            = 8;`
