@@ -1,19 +1,8 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- * No spaces in job name
- * email validator, autocrrect illinois or uiuc
- * tooltips for each one
- * 
- * 
- * 
- */
-
 /**
  * Description of qsub
- *
+ *  Uses the config file to generate required and mandatory fields
  * @author sadkhin2
  */
 error_reporting(E_STRICT);
@@ -47,56 +36,20 @@ function main(){
     echo "</div>";
 }
 
+#Return a button
 function genValidateButton(){
         return "<button type='button' class='btn btn-info' onclick='validate(1)'>Validate Qsub Form </button> &nbsp;&nbsp;&nbsp;&nbsp;" ;
          //"<button type='button' class='btn btn-primary' onclick='download()'>Download</button><br><br>";
 }
 
+#Doesn't work
 function genCopyClipboard(){
     return "<button type='button' class='btn btn-primary ' onclick='copyToClipboard()'>Copy to Clipboard</button>";
-    
-}
-
-
-#39b3d7
-
-function generateQueueInformationTables22(){
-    
-    global $conf;
-    $div = "<div id='queue_info' ><legend>Available Resources</legend>";
-    
-    
-    
-    foreach(array_keys($conf['queue']) as $q) {
-       $table = "<table class='queue_information_table'>\n"     ;
-       $table .= "<tr>
-                    <th>Queue Name</th>
-                    <th>Available Processors (cpus) </th>
-                    <th>Available Memory</th>
-                    <th>Available Nodes</th>
-                   </tr>";
-       
-       foreach(array_keys($conf['queue'][$q]) as $param){
-           $val = $conf['queue'][$q][$param]; 
-           $gb = "";
-           if($param == 'default'){
-                continue;
-            }
-            if($param == 'memory'){
-                $gb.= " GB"; 
-            }
-            
-            $table_row =  "\t<tr><td>{$param}</td><td id='{$q}_{$param}' data-param='{$param}' data-val='{$val}'>{$val}{$gb}</td></tr>\n";
-            $table.= $table_row;
-        }
-       $div .= $table . " </table>\n" ;
-    }
-    return "<br>" . $div . "</div>"; 
 }
 
 
 /**
- *  echos a div populated with queue settings from the config.php file
+ *  returns a div populated with queue settings from the config.php file
  */
 function generateQueueInformationTables(){
     
@@ -115,8 +68,6 @@ function generateQueueInformationTables(){
             if($param == 'memory'){
                 $gb.= " GB"; 
             }
-            
-            
             $table_row =  "\t<tr><td>{$param}</td><td id='{$q}_{$param}' data-param='{$param}' data-val='{$val}'>{$val}{$gb}</td></tr>\n";
             $table.= $table_row;
         }
@@ -125,9 +76,7 @@ function generateQueueInformationTables(){
     return "<br>" . $div . "</div><br>"; 
 }
 
-
-
-
+//Return a div for the queue
 function generateQueueSettingsInputFields(){
     global $conf;
    
@@ -209,6 +158,7 @@ function generateSettingFields($recommended_or_optional){
     
 }
 
+//Return modules
 function getModulesSelect(){
     $lines = preg_split('/ +/',file_get_contents('http://biocluster.igb.illinois.edu/apps.txt'));
    # $select = '<option label="Select Available Module" data-locked="true" s> Select Available Module </option>';
@@ -219,7 +169,6 @@ function getModulesSelect(){
         $matches = preg_split("/\s+/",$line);
         foreach($matches as $match){
               array_push($software,($match));
-
         }
     }
     sort($software);
@@ -236,8 +185,6 @@ function getModulesSelect(){
 
 function genSoftwareSettings(){
     $div = "<div id='software_settings' class='col-lg' >";
-    
-    
     
     $legend = "<legend>Software Run Settings </legend>";
     $form = "<form autocomplete='off' class='form-horizontal ' role='form'><fieldset>";
@@ -265,21 +212,18 @@ function genSoftwareSettings(){
                 <label for='user_software' class='col-lg-2 ' title='user_software'>Commands to run</label>
                     <div class='col-lg-9'    > 
                         <div class='col-lg-1'>
-                            <textarea class='form-control' id='user_software' rows='2' style='width:400px' placeholder='formatdb -p F -i all_seqs.fasta -n customBLASTdb ' onKeyUp='addSoftware()'></textarea>
+                           <textarea class='form-control' id='user_software' rows='2' style='width:400px' placeholder='formatdb -p F -i all_seqs.fasta -n customBLASTdb ' onKeyUp='addSoftware()'></textarea>
                         </div>
                     </div >
             </div>";
-    
         $form .=  $available_modules . $user_software . "</fieldset></form>";
-    
-    
-    
     
     $div .=  $form ."</div>";
     return $div;
-//modules input  
+    
 }
 
+//Return the div with qsub commands
 function generateQsubCommands(){
     global $conf;
     $div = "<legend> Your Generated <a href='http://www.clusterresources.com/torquedocs21/commands/qsub.shtml'>QSUB</a> Script</legend>";
@@ -316,7 +260,7 @@ function generateQsubCommands(){
 
 
 
-/* Helper funciton that redirects to other functions */
+/* Helper function that redirects to other functions */
 function returnSettingsInput($rec_or_opt,$parameter){
     global $conf;
     $description    = $conf['param'][$parameter]['description']; 
@@ -350,10 +294,5 @@ function returnSpecialCase($rec_or_opt,$parameter){
     return 'You are special';
 }
  
-
-
-
-
-
 ?>
  
