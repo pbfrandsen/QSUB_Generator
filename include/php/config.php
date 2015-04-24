@@ -2,33 +2,56 @@
 
 
 /* Queue Settings, Queue Names must not have whitespace, or HTML ids fail! */
-$conf['queue']['budget']['cpu']            = 8;
-$conf['queue']['budget']['memory']         = 24;
-$conf['queue']['budget']['nodes']          = 10;
+$conf['queue']['sThC']['cpu']            = 8;
+$conf['queue']['sThC']['memory']         = 24;
+$conf['queue']['sThC']['nodes']          = 10;
+$conf['queue']['sThC']['time limit']     = 12;
 
-$conf['queue']['blacklight']['cpu']         = 384;
-$conf['queue']['blacklight']['memory']      = 2048;
-$conf['queue']['blacklight']['nodes']       = 4;
+$conf['queue']['sThM']['cpu']            = 8;
+$conf['queue']['sThM']['memory']         = 24;
+$conf['queue']['sThM']['nodes']          = 10;
+$conf['queue']['sThM']['time limit']     = 12;
 
+$conf['queue']['mThC']['cpu']            = 24;
+$conf['queue']['mThC']['memory']         = 384;
+$conf['queue']['mThC']['nodes']          = 20;
+$conf['queue']['mThC']['time limit']     = 12;
 
-$conf['queue']['default']['cpu']            = 24;
-$conf['queue']['default']['memory']         = 384;
-$conf['queue']['default']['nodes']          = 20;
+$conf['queue']['mThC']['default']       = 1;
 
-$conf['queue']['default']['default']       = 1;
+$conf['queue']['mThM']['cpu']            = 24;
+$conf['queue']['mThM']['memory']         = 384;
+$conf['queue']['mThM']['nodes']          = 20;
+$conf['queue']['mThM']['time limit']     = 12;
 
-$conf['queue']['largememory']['cpu']       = 24;
-$conf['queue']['largememory']['memory']    = 1024;
-$conf['queue']['largememory']['nodes']     = 1;
+$conf['queue']['lThC']['cpu']            = 8;
+$conf['queue']['lThC']['memory']         = 24;
+$conf['queue']['lThC']['nodes']          = 10;
+$conf['queue']['lThC']['time limit']     = 12;
 
+$conf['queue']['lThM']['cpu']            = 8;
+$conf['queue']['lThM']['memory']         = 24;
+$conf['queue']['lThM']['nodes']          = 10;
+$conf['queue']['lThM']['time limit']     = 12;
+
+$conf['queue']['uThC']['cpu']            = 8;
+$conf['queue']['uThC']['memory']         = 24;
+$conf['queue']['uThC']['nodes']          = 10;
+$conf['queue']['uThC']['time limit']     = 12;
+
+$conf['queue']['uThM']['cpu']            = 8;
+$conf['queue']['uThM']['memory']         = 24;
+$conf['queue']['uThM']['nodes']          = 10;
+$conf['queue']['uThM']['time limit']     = 12;
 
 /* Recommended and Optional Settings we want the user to specifyn */
 $conf['settings']['recommended']            = array('M','N','d');
 $conf['settings']['optional']               = array('e','A');
 
 
-/* Torque Qsub Settings */
+/* Hydra Qsub Settings */
 /* Special case should have the parameter as its value, and you must handle the logic in a javascript function */
+/* This needs to modified for the specifics of Hydra!! */
 $conf['param']['a']['description']          = 'Date / Time';
 $conf['param']['a']['example']              = '02/02/1989';
 
