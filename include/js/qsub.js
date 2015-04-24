@@ -119,7 +119,7 @@ function addResourcesToQsubSpan() {
         nodeWarning();
     }
     
-    var resources = "nodes=" + nodes + ":ppn=" + cpu + ",mem=" + memory*1000 + "mb";
+    var resources = "nodes=" + nodes + ",openmp=" + cpu + ",mem=" + memory*1000 + "mb";
     addQsubParamHelper('l', resources, 'qsub_commands');
 }
 
@@ -272,10 +272,16 @@ function addQsubParam(formInputElement) {
 
 //Adds/Modifies/Deletes a qsub_parameter span in the qsub output form
 function addQsubParamHelper(parameter, value) {
-    var content = "#PBS -" + parameter + " " + value + "<br>";
-    var span = "<span id='" + parameter + "_param_input'>" + content + "</span>";
-    var spanID = '#' + parameter + "_param_input";
-
+    if (parameter == 'q'){
+        var content = "#$ -" + parameter + " " + value + ".q" + "<br>";
+        var span = "<span id='" + parameter + "_param_input'>" + content + "</span>";
+        var spanID = '#' + parameter + "_param_input";
+    }
+    else{
+        var content = "#$ -" + parameter + " " + value + "<br>";
+        var span = "<span id='" + parameter + "_param_input'>" + content + "</span>";
+        var spanID = '#' + parameter + "_param_input";
+    }
     if (value.length == 0) {
         $(spanID).remove();
     }
