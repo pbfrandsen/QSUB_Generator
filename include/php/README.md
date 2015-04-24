@@ -8,6 +8,8 @@
 
 ` $conf['queue']['budget']['nodes']          = 10;`
 
+` $conf['queue']['budget']['time']           = 12;`
+
 
 ## Recommended and Optional Settings we want the user to specify 
 

@@ -15,17 +15,20 @@ main();
 
 function main(){ 
     echo '<div class="container ">';
+
+    echo "<div id='top_container'>";
          echo generateQueueInformationTables();
+    echo "</div>";
   
-   echo "<div id='left_container'>";
+    echo "<div id='left_container'>";
           echo generateQueueSettingsInputFields();
           echo genSoftwareSettings();
           echo genRecommendedSettings();
           echo genOptionalSettings(); 
           echo genValidateButton();
-   echo "</div>";
+    echo "</div>";
     
-   echo "<div id='right_container' >";
+    echo "<div id='right_container' >";
           echo generateQsubCommands();  
           echo genValidateButton();
          // echo genCopyClipboard();
@@ -226,7 +229,7 @@ function genSoftwareSettings(){
 //Return the div with qsub commands
 function generateQsubCommands(){
     global $conf;
-    $div = "<legend> Your Generated <a href='http://www.clusterresources.com/torquedocs21/commands/qsub.shtml'>QSUB</a> Script</legend>";
+    $div = "<legend> Your Generated <a href='http://gridscheduler.sourceforge.net/htmlman/htmlman1/qsub.html'>QSUB</a> Script</legend>";
     
     $div .= 
      "<div id='output'>
@@ -235,7 +238,7 @@ function generateQsubCommands(){
          # ----------------QSUB Parameters----------------- #<br>\n
        <span id='qsub_params_span'>
        <!-- <span id='bash_comment'># Selects Bash as shell </span><br>\n -->
-        <span id='bash_content'>#PBS -S /bin/bash</span><br>
+        <span id='bash_content'>#$ -S /bin/bash</span><br>
        </span>
         # ----------------Load Modules-------------------- #<br>
         <span id='modules_span'></span>
