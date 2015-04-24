@@ -45,7 +45,7 @@ $header =
          <div class="navbar-header ">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">
           </button>
-          <a class="navbar-brand custom_header" href="#" >&nbsp &nbsp Institute for Genomic Biology - QSUB Generation Utility</a>
+          <a class="navbar-brand custom_header" href="#" >&nbsp &nbsp Smithsonian Institution HPC - QSUB Generation Utility</a>
         </div>
       </nav>
     </div>
