@@ -34,7 +34,7 @@ function main(){
          // echo genCopyClipboard();
           
           
-   echo "</div>";
+    echo "</div>";
    
     echo "</div>";
 }
