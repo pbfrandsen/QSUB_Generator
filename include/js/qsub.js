@@ -243,8 +243,15 @@ function showQueueStats(queueName) {
             returnOptionSelectHTML('Nodes', nodes) +
             "</div>";
 
+    var pe_div = 
+            "<div class='form-group'>" +
+            "<label class='col-lg-5'>Parallel Environment &nbsp;&nbsp;" + nodes_tooltip + "</label>" +
+            "<select id= 'PE' onChange='addResourcesToQsubSpan()' class='form-control '" +
+            " style='max-width:100px'><option>None</option><option>mthreads</option><option>mpi</option></select>\n" +
+            "</div>";
+
     var legend = "<legend style='width:200px;'>Allocate Job Submission Resources</legend>"
-    var html = "<form class='form-horizontal' role='form'><fieldset>" + legend + cpu_div + memory_div + nodes_div + "</fieldset></form>";
+    var html = "<form class='form-horizontal' role='form'><fieldset>" + legend + pe_div + cpu_div + memory_div + "</fieldset></form>";
     
     addQsubParamHelper('q',queueName)
     $("#queue_stats").html(html);
