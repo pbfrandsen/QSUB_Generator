@@ -115,12 +115,25 @@ function addResourcesToQsubSpan() {
     var cpu = $("#CPU").find(":selected").text();
     var memory = $("#Memory").find(":selected").text();
     var nodes = $("#Nodes").find(":selected").text();
+    var pe = $("#PE").find(":selected").text();
     if(nodes >1){
         nodeWarning();
     }
-    
-    var resources = "nodes=" + nodes + ",openmp=" + cpu + ",mem=" + memory*1000 + "mb";
+    if (cpu === "1"){
+        var resources = "mem=" + memory*1000 + "mb";
+    }
+    else{
+        if ((parseInt(cpu) > 1) && (pe === "None")){
+            pe = prompt("You cannot choose more than one CPU and None for your parallel environment, please type either 'mthreads' or 'mpi'")
+        }
+        while ((pe != 'mthreads') && (pe != 'mpi')){
+            pe = prompt("That is not one of our parallel environments, please type either 'mthreads' or 'mpi'")
+        }
+        var resources = "mem=" + memory*1000 + "mb";
+        var pe_vals = pe + " " + cpu
+    }
     addQsubParamHelper('l', resources, 'qsub_commands');
+    addQsubParamHelper('pe', pe_vals, 'qsub_commands');
 }
 
 
